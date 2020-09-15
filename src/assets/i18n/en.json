@@ -1,0 +1,11 @@
+{
+  "NAV": {
+    "TITLE": "Test name",
+    "ACCOUNT": "Account",
+    "ATTENDEES": "Attendees list"
+  },
+  "ACCOUNT": {
+    "UPLOAD_AVATAR": "Upload a new avatar",
+    "UPLOADING": "Uploading..."
+  }
+}

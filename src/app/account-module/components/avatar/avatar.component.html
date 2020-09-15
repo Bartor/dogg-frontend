@@ -1,0 +1,25 @@
+<div class="image-container">
+  <button
+    appDnd
+    [maximumNumberOfFiles]="1"
+    [supportedExtensions]="['image/jpeg', 'image/png']"
+    (onfileDropped)="onFileChosen($event)"
+    (onWrongFile)="onFileError($event)"
+    (click)="onButtonClick()"
+    [class.uploading]="uploading"
+  >
+    <fa-icon [icon]="fileUploadIcon"></fa-icon>
+    <h1>{{ "ACCOUNT.UPLOAD_AVATAR" | translate }}</h1>
+  </button>
+  <aside [class.uploading]="uploading">
+    <h1>{{ "ACCOUNT.UPLOADING" | translate }}</h1>
+    <progress max="100" [value]="progress"></progress>
+  </aside>
+  <img [src]="avatarImageUri" />
+</div>
+<input
+  #fileInput
+  type="file"
+  accept=".jpg, .png"
+  (change)="onFileChosen($event.target.files)"
+/>

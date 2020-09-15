@@ -1,0 +1,12 @@
+<nav>
+  <header>
+    <h1>{{ "NAV.TITLE" | translate }}</h1>
+  </header>
+  <ul>
+    <li *ngFor="let route of routes">
+      <a [routerLink]="route.path" routerLinkActive="active">{{
+        route.translationKey | translate
+      }}</a>
+    </li>
+  </ul>
+</nav>
