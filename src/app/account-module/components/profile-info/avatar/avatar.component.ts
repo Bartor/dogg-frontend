@@ -1,6 +1,13 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
-import { AccountService } from '../../services/account.service';
+import { FileUploader } from 'src/app/core/types/file-upload.type';
 
 @Component({
   selector: 'app-avatar',
@@ -10,17 +17,16 @@ import { AccountService } from '../../services/account.service';
 export class AvatarComponent implements OnInit {
   fileUploadIcon = faFileUpload;
 
-  avatarImageUri: string = '';
+  @Input() profilePhoto: string;
+  @Input() enableEditing: boolean;
+  @Input() uploader: FileUploader;
+
   uploading = false;
   progress = 0;
 
   @ViewChild('fileInput', { static: false }) fileInputRef: ElementRef;
 
-  constructor(private accountService: AccountService) {
-    accountService.account.subscribe(
-      (acc) => (this.avatarImageUri = acc.avatarUri)
-    );
-  }
+  constructor() {}
 
   onButtonClick() {
     if (!this.uploading) {
@@ -31,24 +37,18 @@ export class AvatarComponent implements OnInit {
   onFileError(error: Error) {}
 
   onFileChosen(files: FileList) {
-    if (!this.uploading && files.length > 0) {
+    if (!this.uploading && this.enableEditing && files.length > 0) {
       this.uploading = true;
 
-      this.accountService.uploadAvatar(files[0]).subscribe(
-        (event) => {
-          this.progress = event;
-        },
+      this.uploader(files[0]).subscribe(
+        (progress) => (this.progress = progress),
         (error) => {
-          console.error(error);
-
-          this.fileInputRef.nativeElement.value = '';
           this.uploading = false;
-          this.progress = 0;
+          this.fileInputRef.nativeElement.value = '';
         },
         () => {
-          this.fileInputRef.nativeElement.value = '';
           this.uploading = false;
-          this.progress = 0;
+          this.fileInputRef.nativeElement.value = '';
         }
       );
     }

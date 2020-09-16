@@ -1,0 +1,53 @@
+:host {
+  position: relative;
+  user-select: none;
+  width: 4rem;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+
+    &.on + label {
+      background-color: var(--theme-yellow-color);
+    }
+    &.on + label,
+    &.on + label:before {
+      border-color: var(--theme-yellow-color);
+    }
+    &.on + label:before {
+      right: 0.2rem;
+    }
+  }
+
+  label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+
+    height: 2rem;
+    line-height: 2rem;
+
+    padding: 0;
+
+    border-radius: var(--default-radius);
+    background-color: var(--theme-light-color);
+
+    transition: background-color 200ms ease-in;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 1.8rem;
+      height: 1.8rem;
+      margin: 0px;
+      background: var(--theme-white-color);
+      position: absolute;
+      top: 0.1rem;
+      bottom: 0.1rem;
+      right: calc(100% - 2rem);
+      border-radius: var(--default-radius);
+      transition: all 200ms ease-in 0s;
+    }
+  }
+}

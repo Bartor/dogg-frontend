@@ -1,0 +1,41 @@
+<form ngNativeValidate (ngSubmit)="onSubmit()">
+  <label>
+    <input
+      required
+      name="username"
+      [(ngModel)]="account.username"
+      [disabled]="!enableEditing"
+    />
+    {{ "ACCOUNT.USERNAME" | translate }}
+  </label>
+  <label>
+    <input
+      required
+      name="firstName"
+      [(ngModel)]="account.firstName"
+      [disabled]="!enableEditing"
+    />
+    {{ "ACCOUNT.FIRST_NAME" | translate }}
+  </label>
+  <label>
+    <input
+      required
+      name="lastName"
+      [(ngModel)]="account.lastName"
+      [disabled]="!enableEditing"
+    />
+    {{ "ACCOUNT.LAST_NAME" | translate }}
+  </label>
+  <label>
+    <input
+      required
+      type="email"
+      name="email"
+      [(ngModel)]="account.email"
+      [disabled]="!enableEditing"
+    />
+    {{ "ACCOUNT.EMAIL" | translate }}
+  </label>
+  <!-- add your custom submit button here -->
+  <ng-content></ng-content>
+</form>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditableFieldComponent } from './editable-field.component';
+import { ProfileFormComponent } from './profile-form.component';
 
-describe('EditableFieldComponent', () => {
-  let component: EditableFieldComponent;
-  let fixture: ComponentFixture<EditableFieldComponent>;
+describe('ProfileFormComponent', () => {
+  let component: ProfileFormComponent;
+  let fixture: ComponentFixture<ProfileFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditableFieldComponent ]
+      declarations: [ ProfileFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditableFieldComponent);
+    fixture = TestBed.createComponent(ProfileFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Account } from 'src/app/core/types/account.type';
+import { FileUploader } from 'src/app/core/types/file-upload.type';
 import { AccountService } from '../../services/account.service';
 
 @Component({
@@ -10,37 +10,26 @@ import { AccountService } from '../../services/account.service';
 })
 export class ProfileInfoComponent implements OnInit {
   account: Account;
-  lastAccount: Account;
   editing: boolean = false;
-  saving: boolean = false;
-
-  formControl = new FormControl();
+  uploader: FileUploader;
 
   constructor(private accountService: AccountService) {
-    accountService.account.subscribe((acc) => {
-      this.account = acc;
-      this.lastAccount = acc;
-    });
+    accountService.account.subscribe((acc) => (this.account = acc));
+    this.uploader = new FileUploader((file: File) =>
+      accountService.uploadAvatar(file)
+    );
   }
 
-  enableEditing(event) {
-    event.preventDefault();
-    this.account = { ...this.lastAccount };
-    this.editing = true;
-  }
-
-  discardEdit(event) {
-    event.preventDefault();
-    this.account = this.lastAccount;
+  onAccountFormUpdate(account) {
+    console.log(account);
     this.editing = false;
   }
 
-  saveEdit() {
-    this.editing = false;
-  }
-
-  onFormSubmit(event) {
-    console.log(event);
+  click(event) {
+    if (this.editing === false) {
+      event.preventDefault();
+      this.editing = true;
+    }
   }
 
   ngOnInit(): void {}

@@ -7,6 +7,7 @@
     (onWrongFile)="onFileError($event)"
     (click)="onButtonClick()"
     [class.uploading]="uploading"
+    [disabled]="!enableEditing"
   >
     <fa-icon [icon]="fileUploadIcon"></fa-icon>
     <h1>{{ "ACCOUNT.UPLOAD_AVATAR" | translate }}</h1>
@@ -15,7 +16,7 @@
     <h1>{{ "ACCOUNT.UPLOADING" | translate }}</h1>
     <progress max="100" [value]="progress"></progress>
   </aside>
-  <img [src]="avatarImageUri" />
+  <img [src]="profilePhoto" />
 </div>
 <input
   #fileInput
