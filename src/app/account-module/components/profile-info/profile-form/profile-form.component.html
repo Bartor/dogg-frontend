@@ -43,7 +43,16 @@
     </label>
   </div>
   <ul>
-    <li *ngFor="let contactMethod of account.concactMethods; let i = index">
+    {{
+      "ACCOUNT.CONTACT_METHODS" | translate
+    }}
+    <li
+      *ngFor="
+        let contactMethod of account.concactMethods;
+        let i = index;
+        trackBy: trackByFn
+      "
+    >
       <app-contact-method
         [enableEditing]="enableEditing"
         [(contactMethod)]="account.concactMethods[i]"

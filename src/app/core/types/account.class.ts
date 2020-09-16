@@ -20,12 +20,17 @@ export class ContactMethod {
   equals(other: ContactMethod) {
     return (
       this.methodDefinition === other.methodDefinition &&
-      this.methodValue === other.methodValue
+      this.methodValue === other.methodValue &&
+      this.visible === other.visible
     );
   }
 
   static copy(other: ContactMethod) {
-    return new ContactMethod(other.methodDefinition, other.methodValue);
+    return new ContactMethod(
+      other.methodDefinition,
+      other.methodValue,
+      other.visible
+    );
   }
 }
 

@@ -1,3 +1,4 @@
+import { ClassMethod } from '@angular/compiler';
 import {
   Component,
   EventEmitter,
@@ -24,6 +25,8 @@ export class ProfileFormComponent implements OnInit {
   @Output() accountChange = new EventEmitter<Account>();
 
   helper: boolean;
+  trackByFn = (cm: ContactMethod) =>
+    cm.visible + cm?.methodDefinition?.methodIdentifier + cm.methodValue;
 
   constructor() {}
 

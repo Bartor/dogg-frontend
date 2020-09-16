@@ -1,4 +1,6 @@
 :host {
+  display: flex;
+
   label {
     display: flex;
     flex-direction: column;
@@ -26,6 +28,13 @@
       &:focus {
         outline: 0;
       }
+    }
+
+    app-switch-button {
+      --height: 2rem;
+
+      margin-bottom: 2px;
+      margin-top: calc(1.5rem - var(--default-padding));
     }
   }
 }

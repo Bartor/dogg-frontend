@@ -23,6 +23,8 @@
     "HELPER": "Helper",
     "ATTENDEE": "Attendee",
     "ORGANIZER": "Organizer",
-    "SPONSOR": "Sponsor"
+    "SPONSOR": "Sponsor",
+    "VISIBLE": "Publicly visible?",
+    "CONTACT_METHODS": "Available contact methods"
   }
 }

@@ -3,6 +3,16 @@
     required
     [disabled]="!enableEditing"
     [(ngModel)]="contactMethod.methodValue"
+    (change)="onContactChage()"
   />
   {{ contactMethod.methodDefinition.methodIdentifier | translate }}
+</label>
+<label>
+  <app-switch-button
+    [enableEditing]="enableEditing"
+    type="checkbox"
+    [(value)]="contactMethod.visible"
+    (valueChange)="onContactChage()"
+  ></app-switch-button>
+  {{ "ACCOUNT.VISIBLE" | translate }}
 </label>
