@@ -1,0 +1,48 @@
+<form (submit)="onFormSubmit($event)">
+  <app-editable-field
+    [required]="true"
+    [(value)]="account.username"
+    labelText="ACCOUNT.USERNAME"
+    [enabled]="editing"
+  ></app-editable-field>
+  <app-editable-field
+    [(value)]="account.firstName"
+    labelText="ACCOUNT.FIRST_NAME"
+    [enabled]="editing"
+  ></app-editable-field>
+  <app-editable-field
+    [(value)]="account.lastName"
+    labelText="ACCOUNT.LAST_NAME"
+    [enabled]="editing"
+  ></app-editable-field>
+  <app-editable-field
+    type="email"
+    [(value)]="account.email"
+    labelText="ACCOUNT.EMAIL"
+    [enabled]="editing"
+  ></app-editable-field>
+  <nav>
+    <button
+      (click)="enableEditing($event)"
+      [class.hidden]="editing"
+      class="inverted"
+    >
+      {{ "ACCOUNT.EDIT" | translate }}
+    </button>
+    <button
+      type="submit"
+      (click)="saveEdit()"
+      [class.hidden]="!editing"
+      class="inverted"
+    >
+      {{ "ACCOUNT.SAVE" | translate }}
+    </button>
+    <button
+      (click)="discardEdit($event)"
+      [class.hidden]="!editing"
+      class="inverted"
+    >
+      {{ "ACCOUNT.DISCARD" | translate }}
+    </button>
+  </nav>
+</form>

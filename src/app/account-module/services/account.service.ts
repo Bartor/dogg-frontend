@@ -24,5 +24,9 @@ export class AccountService {
     return interval(25).pipe(take(100));
   }
 
+  public updateAccount(account: Account) {
+    this.accountSubject.next(account);
+  }
+
   constructor() {}
 }

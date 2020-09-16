@@ -6,6 +6,13 @@
   },
   "ACCOUNT": {
     "UPLOAD_AVATAR": "Upload a new avatar",
-    "UPLOADING": "Uploading..."
+    "UPLOADING": "Uploading...",
+    "USERNAME": "Username",
+    "FIRST_NAME": "First name",
+    "LAST_NAME": "Last name",
+    "EMAIL": "E-mail",
+    "EDIT": "Enable editing",
+    "SAVE": "Save",
+    "DISCARD": "Discard"
   }
 }

@@ -23,3 +23,40 @@ body {
 * {
   box-sizing: border-box;
 }
+
+@mixin button-style {
+  padding: var(--default-padding);
+  text-decoration: none;
+
+  border: 0;
+
+  border-radius: var(--default-radius);
+  color: var(--theme-yellow-color);
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--theme-light-color);
+    color: var(--theme-white-color);
+  }
+
+  &:hover,
+  &.active {
+    background-color: var(--theme-yellow-color);
+    color: var(--theme-white-color);
+  }
+
+  &.inverted {
+    background-color: var(--theme-yellow-color);
+    color: var(--theme-white-color);
+
+    &:hover,
+    &.active {
+      background-color: var(--theme-light-color);
+      color: var(--theme-yellow-color);
+    }
+  }
+}
