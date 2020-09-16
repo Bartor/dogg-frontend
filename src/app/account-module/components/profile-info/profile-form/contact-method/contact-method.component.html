@@ -1,0 +1,8 @@
+<label>
+  <input
+    required
+    [disabled]="!enableEditing"
+    [(ngModel)]="contactMethod.methodValue"
+  />
+  {{ contactMethod.methodDefinition.methodIdentifier | translate }}
+</label>

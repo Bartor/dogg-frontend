@@ -4,15 +4,25 @@
     "ACCOUNT": "Account",
     "ATTENDEES": "Attendees list"
   },
+  "CONTACT": {
+    "EMAIL": "E-mail",
+    "TELEGRAM": "Telegram",
+    "DISCORD": "Discord"
+  },
   "ACCOUNT": {
     "UPLOAD_AVATAR": "Upload a new avatar",
     "UPLOADING": "Uploading...",
     "USERNAME": "Username",
     "FIRST_NAME": "First name",
     "LAST_NAME": "Last name",
-    "EMAIL": "E-mail",
     "EDIT": "Enable editing",
     "SAVE": "Save",
-    "DISCARD": "Discard"
+    "DISCARD": "Discard",
+    "DO_HELP": "Wanna help?",
+    "ROLE": "Role",
+    "HELPER": "Helper",
+    "ATTENDEE": "Attendee",
+    "ORGANIZER": "Organizer",
+    "SPONSOR": "Sponsor"
   }
 }

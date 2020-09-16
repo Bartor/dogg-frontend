@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import * as uuid from 'uuid';
 
 @Component({
@@ -6,18 +13,22 @@ import * as uuid from 'uuid';
   templateUrl: './switch-button.component.html',
   styleUrls: ['./switch-button.component.scss'],
 })
-export class SwitchButtonComponent implements OnInit {
+export class SwitchButtonComponent {
+  @Input() value: boolean;
+  @Output() valueChange = new EventEmitter<boolean>();
+
+  @Input() enableEditing: boolean = true;
   @Input() on: boolean;
   @Input() type: string;
   @Output() click = new EventEmitter<any>();
 
   id = uuid.v4();
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
   onClick(event) {
     this.click.emit(event);
+  }
+
+  onChange(event) {
+    this.valueChange.emit(event.target.checked);
   }
 }

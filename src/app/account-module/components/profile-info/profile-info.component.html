@@ -1,6 +1,6 @@
 <app-avatar
   [uploader]="uploader"
-  [profilePhoto]="account.avatarUri"
+  [profilePhoto]="account.avatarSrc"
   [enableEditing]="editing"
 ></app-avatar>
 <app-profile-form
@@ -13,6 +13,7 @@
       type="submit"
       [on]="editing"
       (click)="click($event)"
+      [enableEditing]="uploader.state !== fus.IN_PROGRESS"
     ></app-switch-button>
     <h1>
       {{ "ACCOUNT.EDIT" | translate }}

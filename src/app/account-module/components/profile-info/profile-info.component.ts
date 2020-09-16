@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Account } from 'src/app/core/types/account.type';
-import { FileUploader } from 'src/app/core/types/file-upload.type';
+import { Account } from 'src/app/core/types/account.class';
+import { FileUploader, FileUploadState } from 'src/app/core/types/file-upload';
 import { AccountService } from '../../services/account.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class ProfileInfoComponent implements OnInit {
   account: Account;
   editing: boolean = false;
   uploader: FileUploader;
+  fus = FileUploadState;
 
   constructor(private accountService: AccountService) {
     accountService.account.subscribe((acc) => (this.account = acc));
@@ -22,6 +23,7 @@ export class ProfileInfoComponent implements OnInit {
 
   onAccountFormUpdate(account) {
     console.log(account);
+    this.account = account;
     this.editing = false;
   }
 

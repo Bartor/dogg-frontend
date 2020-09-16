@@ -9,7 +9,7 @@
 
   aside,
   button {
-    transition: 200ms all ease;
+    transition: all var(--transition-time) ease;
 
     position: absolute;
     top: 0;
@@ -41,7 +41,7 @@
     filter: opacity(0);
 
     fa-icon {
-      transition: 200ms all ease;
+      transition: all var(--transition-time) ease;
 
       font-size: 4rem;
       transform: scale(1);

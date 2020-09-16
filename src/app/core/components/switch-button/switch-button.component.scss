@@ -1,22 +1,35 @@
 :host {
+  --height: 2rem;
+  --width: 4rem;
+
   position: relative;
   user-select: none;
-  width: 4rem;
+  width: var(--width);
 
   input {
     position: absolute;
     opacity: 0;
     pointer-events: none;
 
-    &.on + label {
+    &.on + label,
+    &:checked + label {
       background-color: var(--theme-yellow-color);
     }
     &.on + label,
-    &.on + label:before {
+    &:checked + label,
+    &.on + label:before,
+    &:checked + label:before {
       border-color: var(--theme-yellow-color);
     }
-    &.on + label:before {
+    &.on + label:before,
+    &:checked + label:before {
       right: 0.2rem;
+    }
+
+    &:disabled,
+    &:disabled + label {
+      cursor: not-allowed;
+      background-color: var(--theme-dark-color);
     }
   }
 
@@ -25,29 +38,29 @@
     overflow: hidden;
     cursor: pointer;
 
-    height: 2rem;
-    line-height: 2rem;
+    height: var(--height);
+    line-height: var(--height);
 
     padding: 0;
 
     border-radius: var(--default-radius);
     background-color: var(--theme-light-color);
 
-    transition: background-color 200ms ease-in;
+    transition: background-color var(--transition-time) ease;
 
     &:before {
       content: "";
       display: block;
-      width: 1.8rem;
-      height: 1.8rem;
+      width: calc(var(--height) - 0.2rem);
+      height: calc(var(--height) - 0.2rem);
       margin: 0px;
       background: var(--theme-white-color);
       position: absolute;
       top: 0.1rem;
       bottom: 0.1rem;
-      right: calc(100% - 2rem);
+      right: calc(100% - var(--height));
       border-radius: var(--default-radius);
-      transition: all 200ms ease-in 0s;
+      transition: all var(--transition-time) ease;
     }
   }
 }

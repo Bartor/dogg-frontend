@@ -10,6 +10,8 @@
 
   --default-padding: 1rem;
   --default-radius: 0.8rem;
+
+  --transition-time: 250ms;
 }
 
 html,
@@ -37,12 +39,6 @@ body {
 
   cursor: pointer;
 
-  &:disabled {
-    cursor: not-allowed;
-    background-color: var(--theme-light-color);
-    color: var(--theme-white-color);
-  }
-
   &:hover,
   &.active {
     background-color: var(--theme-yellow-color);
@@ -58,5 +54,16 @@ body {
       background-color: var(--theme-light-color);
       color: var(--theme-yellow-color);
     }
+
+    &:disabled {
+      background-color: var(--theme-light-color);
+      color: var(--theme-white-color);
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--theme-light-color);
+    color: var(--theme-white-color);
   }
 }

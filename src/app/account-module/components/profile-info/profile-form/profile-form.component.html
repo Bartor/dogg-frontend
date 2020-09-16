@@ -26,16 +26,46 @@
     />
     {{ "ACCOUNT.LAST_NAME" | translate }}
   </label>
-  <label>
-    <input
-      required
-      type="email"
-      name="email"
-      [(ngModel)]="account.email"
-      [disabled]="!enableEditing"
-    />
-    {{ "ACCOUNT.EMAIL" | translate }}
-  </label>
+  <div class="two-container">
+    <label [class.hidden]="!enableEditing">
+      <app-switch-button
+        [enableEditing]="enableEditing"
+        type="checkbox"
+        [(value)]="helper"
+      ></app-switch-button>
+      {{ "ACCOUNT.DO_HELP" | translate }}
+    </label>
+    <label [class.hidden]="enableEditing">
+      <h1>
+        {{ account.accountType | translate }}
+      </h1>
+      {{ "ACCOUNT.ROLE" | translate }}
+    </label>
+  </div>
+  <ul>
+    <li *ngFor="let contactMethod of account.concactMethods; let i = index">
+      <app-contact-method
+        [enableEditing]="enableEditing"
+        [(contactMethod)]="account.concactMethods[i]"
+      ></app-contact-method>
+      <button
+        class="inverted"
+        [disabled]="!enableEditing"
+        (click)="deleteContact($event, i)"
+      >
+        delet this
+      </button>
+    </li>
+    <li [class.hidden]="!enableEditing">
+      <button
+        class="inverted"
+        [disabled]="!enableEditing"
+        (click)="addNewContact($event)"
+      >
+        add new
+      </button>
+    </li>
+  </ul>
   <!-- add your custom submit button here -->
   <ng-content></ng-content>
 </form>

@@ -7,6 +7,7 @@ import { ProfileInfoComponent } from './components/profile-info/profile-info.com
 import { FormsModule } from '@angular/forms';
 import { ProfileFormComponent } from './components/profile-info/profile-form/profile-form.component';
 import { AvatarComponent } from './components/profile-info/avatar/avatar.component';
+import { ContactMethodComponent } from './components/profile-info/profile-form/contact-method/contact-method.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AvatarComponent } from './components/profile-info/avatar/avatar.compone
     DndDirective,
     ProfileInfoComponent,
     ProfileFormComponent,
+    ContactMethodComponent,
   ],
   exports: [AccountComponent],
   imports: [CommonModule, SharedModule, FormsModule],
