@@ -1,8 +1,7 @@
-export enum AccountType {
-  ORGANIZER = 'ACCOUNT.ORGANIZER',
-  ATTENDEE = 'ACCOUNT.ATTENDEE',
-  HELPER = 'ACCOUNT.HELPER',
-  SPONSOR = 'ACCOUNT.SPONSOR',
+export interface AccountTypeDefinition {
+  typeIdentifier: string;
+  typeColor: string;
+  admin: boolean;
 }
 
 export interface ContactMethodDefinition {
@@ -37,7 +36,7 @@ export class ContactMethod {
 export class Account {
   constructor(
     public username: string,
-    public accountType: AccountType = AccountType.ATTENDEE,
+    public accountType: AccountTypeDefinition,
     public firstName?: string,
     public lastName?: string,
     public avatarSrc?: string,

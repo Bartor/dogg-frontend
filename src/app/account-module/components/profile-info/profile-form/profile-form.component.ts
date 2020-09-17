@@ -7,41 +7,32 @@ import {
   Output,
   Sanitizer,
 } from '@angular/core';
+import { ACCOUNT_TYPES } from 'src/app/config/account-types';
 import { CONTACT_METHODS } from 'src/app/config/contact-methods';
-import {
-  Account,
-  AccountType,
-  ContactMethod,
-} from 'src/app/core/types/account.class';
+import { RadioOption } from 'src/app/core/components/radio/radio.component';
+import { Account, ContactMethod } from 'src/app/core/types/account.class';
 
 @Component({
   selector: 'app-profile-form',
   templateUrl: './profile-form.component.html',
   styleUrls: ['./profile-form.component.scss'],
 })
-export class ProfileFormComponent implements OnInit {
+export class ProfileFormComponent {
   @Input() enableEditing: boolean = false;
   @Input() account: Account;
   @Output() accountChange = new EventEmitter<Account>();
 
-  helper: boolean;
+  availableRoles: RadioOption[] = ACCOUNT_TYPES.filter((at) => !at.admin).map(
+    (at) => ({
+      label: at.typeIdentifier,
+      value: at,
+    })
+  );
   trackByFn = (cm: ContactMethod) =>
     cm.visible + cm?.methodDefinition?.methodIdentifier + cm.methodValue;
 
-  constructor() {}
-
-  ngOnInit() {
-    this.helper = this.account.accountType === AccountType.HELPER;
-  }
-
   onSubmit() {
     const newAccount = Account.copy(this.account);
-    if (newAccount.accountType === AccountType.ATTENDEE && this.helper) {
-      newAccount.accountType = AccountType.HELPER;
-    }
-    if (newAccount.accountType === AccountType.HELPER && !this.helper) {
-      newAccount.accountType = AccountType.ATTENDEE;
-    }
     this.accountChange.emit(newAccount);
   }
 

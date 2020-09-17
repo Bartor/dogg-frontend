@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, interval, Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { ACCOUNT_TYPES } from 'src/app/config/account-types';
 import { CONTACT_METHODS } from 'src/app/config/contact-methods';
-import {
-  Account,
-  AccountType,
-  ContactMethod,
-} from '../../core/types/account.class';
+import { Account, ContactMethod } from '../../core/types/account.class';
 
 const accountPlaceholder: Account = new Account(
   'Test Name',
-  AccountType.HELPER,
+  ACCOUNT_TYPES[0],
   'John',
   'Smith',
   'https://www.soidog.org/sites/default/files/Slider_Yungma_Mobile_0.jpg',

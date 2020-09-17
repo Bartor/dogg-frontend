@@ -1,0 +1,10 @@
+<label *ngFor="let option of options; let i = index">
+  <input
+    type="radio"
+    [checked]="option === select"
+    [name]="name"
+    [value]="i"
+    (change)="onChange($event)"
+  />
+  {{ option.label | translate }}
+</label>

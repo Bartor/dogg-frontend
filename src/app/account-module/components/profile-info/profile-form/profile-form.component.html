@@ -28,16 +28,11 @@
   </label>
   <div class="two-container">
     <label [class.hidden]="!enableEditing">
-      <app-switch-button
-        [enableEditing]="enableEditing"
-        type="checkbox"
-        [(value)]="helper"
-      ></app-switch-button>
-      {{ "ACCOUNT.DO_HELP" | translate }}
+      <app-radio [options]="availableRoles"></app-radio>
     </label>
     <label [class.hidden]="enableEditing">
       <h1>
-        {{ account.accountType | translate }}
+        {{ account.accountType.typeIdentifier | translate }}
       </h1>
       {{ "ACCOUNT.ROLE" | translate }}
     </label>

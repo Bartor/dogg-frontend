@@ -17,7 +17,6 @@ export class ContactMethodComponent implements OnInit {
   ngOnInit(): void {}
 
   onContactChage() {
-    console.log(this.contactMethod);
     this.contactMethodChange.emit(this.contactMethod);
   }
 }
