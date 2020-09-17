@@ -7,7 +7,7 @@ import { Account, ContactMethod } from '../../core/types/account.class';
 
 const accountPlaceholder: Account = new Account(
   'Test Name',
-  ACCOUNT_TYPES[0],
+  ACCOUNT_TYPES[1],
   'John',
   'Smith',
   'https://www.soidog.org/sites/default/files/Slider_Yungma_Mobile_0.jpg',

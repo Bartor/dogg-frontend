@@ -1,10 +1,11 @@
-<label *ngFor="let option of options; let i = index">
+<label *ngFor="let option of options">
   <input
     type="radio"
-    [checked]="option === select"
+    [disabled]="!enableEditing"
     [name]="name"
-    [value]="i"
-    (change)="onChange($event)"
+    [value]="option.value"
+    [(ngModel)]="select"
+    (change)="onChange()"
   />
   {{ option.label | translate }}
 </label>

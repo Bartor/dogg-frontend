@@ -1,17 +1,23 @@
 :host {
   display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
 
   label {
     display: flex;
     flex-direction: column;
 
+    &:last-of-type {
+      margin-left: 1rem;
+      flex-grow: 1;
+    }
     input {
       padding: 0;
       padding-top: var(--default-padding);
       margin-bottom: 2px;
 
       font-family: "Josefin Sans", sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: bold;
 
       border: 0;
@@ -31,10 +37,11 @@
     }
 
     app-switch-button {
-      --height: 2rem;
+      --height: 1.2rem;
+      --width: 3rem;
 
       margin-bottom: 2px;
-      margin-top: calc(1.5rem - var(--default-padding));
+      margin-top: calc(var(--default-padding));
     }
   }
 }

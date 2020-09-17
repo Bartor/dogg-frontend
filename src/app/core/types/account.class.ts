@@ -7,6 +7,8 @@ export interface AccountTypeDefinition {
 export interface ContactMethodDefinition {
   methodIdentifier: string;
   methodIcon: string;
+  methodInputType: string;
+  methodInputRegex: string;
 }
 
 export class ContactMethod {

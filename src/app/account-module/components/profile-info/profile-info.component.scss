@@ -12,5 +12,10 @@
       margin: 0;
       margin-left: var(--default-padding);
     }
+
+    app-switch-button {
+      --width: 3rem;
+      --height: 1.2rem;
+    }
   }
 }

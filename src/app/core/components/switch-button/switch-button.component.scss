@@ -51,13 +51,13 @@
     &:before {
       content: "";
       display: block;
-      width: calc(var(--height) - 0.2rem);
-      height: calc(var(--height) - 0.2rem);
+      width: calc(var(--height) - 0.3rem);
+      height: calc(var(--height) - 0.3rem);
       margin: 0px;
       background: var(--theme-white-color);
       position: absolute;
-      top: 0.1rem;
-      bottom: 0.1rem;
+      top: 0.15rem;
+      bottom: 0.15rem;
       right: calc(100% - var(--height));
       border-radius: var(--default-radius);
       transition: all var(--transition-time) ease;

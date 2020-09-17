@@ -27,15 +27,21 @@
     {{ "ACCOUNT.LAST_NAME" | translate }}
   </label>
   <div class="two-container">
-    <label [class.hidden]="!enableEditing">
-      <app-radio [options]="availableRoles"></app-radio>
-    </label>
-    <label [class.hidden]="enableEditing">
+    <nav [class.hidden]="!enableEditing || admin">
+      <app-radio
+        [name]="'roles'"
+        [enableEditing]="enableEditing"
+        [options]="availableRoles"
+        [(select)]="account.accountType"
+      ></app-radio>
+      {{ "ACCOUNT.CHANGE_ROLE" | translate }}
+    </nav>
+    <aside [class.hidden]="enableEditing && !admin">
       <h1>
         {{ account.accountType.typeIdentifier | translate }}
       </h1>
       {{ "ACCOUNT.ROLE" | translate }}
-    </label>
+    </aside>
   </div>
   <ul>
     {{
@@ -52,15 +58,18 @@
         [enableEditing]="enableEditing"
         [(contactMethod)]="account.concactMethods[i]"
       ></app-contact-method>
-      <button
-        class="inverted"
-        [disabled]="!enableEditing"
-        (click)="deleteContact($event, i)"
-      >
-        delet this
+      <button [disabled]="!enableEditing" (click)="deleteContact($event, i)">
+        <fa-icon [icon]="trash"></fa-icon>
       </button>
     </li>
-    <li [class.hidden]="!enableEditing">
+    <!-- <nav>
+      <app-radio
+        [name]="'contact-methods'"
+        [enableEditing]="enableEditing"
+        [options]="availableContactMethods"
+        [(select)]="selectedContactMethod"
+      >
+      </app-radio>
       <button
         class="inverted"
         [disabled]="!enableEditing"
@@ -68,7 +77,7 @@
       >
         add new
       </button>
-    </li>
+    </nav> -->
   </ul>
   <!-- add your custom submit button here -->
   <ng-content></ng-content>

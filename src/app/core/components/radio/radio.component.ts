@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import * as uuid from 'uuid';
 
 export interface RadioOption {
   label: string;
@@ -13,22 +12,21 @@ export interface RadioOption {
 })
 export class RadioComponent implements OnInit {
   trackByFn = (opt: RadioOption) => opt.label;
-  name = uuid.v4();
+
+  @Input() enableEditing: boolean;
+  @Input() name: string;
 
   @Input() options: RadioOption[];
 
-  @Input() select: RadioOption;
-  @Input() selectChange = new EventEmitter<RadioOption>();
-
-  selected = 0;
+  @Input() select: any;
+  @Output() selectChange = new EventEmitter<any>();
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.selected = this.options.findIndex((o) => o === this.select);
-  }
+  ngOnInit(): void {}
 
-  onChange(event) {
-    console.log(event.target.value);
+  onChange() {
+    console.log(this.select);
+    this.selectChange.emit(this.select);
   }
 }
