@@ -12,17 +12,18 @@
   --default-radius: 0.8rem;
 
   --transition-time: 250ms;
+  --font: "Josefin Sans", sans-serif;
 }
 
 html,
 body {
   margin: 0;
-  font-family: "Josefin Sans", sans-serif;
   height: 100%;
   background-color: var(--theme-light-color);
 }
 
 * {
+  font-family: "Josefin Sans", sans-serif;
   box-sizing: border-box;
 }
 

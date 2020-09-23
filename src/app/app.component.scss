@@ -1,15 +1,19 @@
+@import "/src/app/core/layout/breakpoints.scss";
+
 :host {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
+  padding: var(--default-padding);
 
   & > ::ng-deep *:not(router-outlet) {
     margin-top: var(--default-padding);
     background-color: var(--theme-white-color);
     border-radius: var(--default-radius);
 
-    width: 80%;
+    max-width: $small;
+    width: 100%;
 
     &:last-child {
       margin-bottom: var(--default-padding);

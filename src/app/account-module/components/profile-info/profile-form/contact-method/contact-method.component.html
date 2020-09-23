@@ -1,4 +1,4 @@
-<label>
+<label class="visibility-toggle" [class.disabled]="!enableEditing">
   <app-switch-button
     type="checkbox"
     [enableEditing]="enableEditing"
@@ -8,9 +8,10 @@
   {{ "ACCOUNT.VISIBLE" | translate }}
 </label>
 
-<label>
+<label class="contact-input">
   <input
     required
+    [placeholder]="contactMethod.methodDefinition.methodPlaceholder | translate"
     [type]="contactMethod.methodDefinition.methodInputType"
     [pattern]="contactMethod.methodDefinition.methodInputRegex"
     [disabled]="!enableEditing"

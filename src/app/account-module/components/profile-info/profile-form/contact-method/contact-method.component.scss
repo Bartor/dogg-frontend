@@ -1,22 +1,36 @@
 :host {
   display: flex;
   flex-grow: 1;
+  flex-wrap: wrap;
   justify-content: space-between;
+
+  --visibility-width: 4rem;
 
   label {
     display: flex;
     flex-direction: column;
 
-    &:last-of-type {
-      margin-left: 1rem;
+    transition: all var(--transition-time) ease;
+
+    &.visibility-toggle {
+      margin-right: 1rem;
+      width: var(--visibility-width);
+      text-align: center;
+
+      &.hidden {
+        margin-left: calc(-1rem - var(--visibility-width));
+      }
+    }
+
+    &.contact-input {
       flex-grow: 1;
     }
+
     input {
       padding: 0;
       padding-top: var(--default-padding);
       margin-bottom: 2px;
 
-      font-family: "Josefin Sans", sans-serif;
       font-size: 1.2rem;
       font-weight: bold;
 
@@ -34,11 +48,15 @@
       &:focus {
         outline: 0;
       }
+
+      &::placeholder {
+        color: var(--theme-light-color);
+      }
     }
 
     app-switch-button {
       --height: 1.2rem;
-      --width: 3rem;
+      --width: var(--visibility-width);
 
       margin-bottom: 2px;
       margin-top: calc(var(--default-padding));

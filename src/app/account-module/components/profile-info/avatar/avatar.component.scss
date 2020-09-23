@@ -2,7 +2,7 @@
   border-radius: var(--default-radius);
   position: relative;
   overflow: hidden;
-
+  
   .image-container {
     display: flex;
   }
@@ -24,10 +24,6 @@
 
     color: var(--theme-white-color);
     background-color: var(--theme-yellow-color);
-
-    h1 {
-      font-family: "Josefin Sans", sans-serif;
-    }
   }
 
   button {

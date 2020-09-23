@@ -9,6 +9,7 @@ export interface ContactMethodDefinition {
   methodIcon: string;
   methodInputType: string;
   methodInputRegex: string;
+  methodPlaceholder: string;
 }
 
 export class ContactMethod {
@@ -18,19 +19,19 @@ export class ContactMethod {
     public visible: boolean = false
   ) {}
 
-  equals(other: ContactMethod) {
-    return (
-      this.methodDefinition === other.methodDefinition &&
-      this.methodValue === other.methodValue &&
-      this.visible === other.visible
-    );
-  }
-
-  static copy(other: ContactMethod) {
+  static copy(other: ContactMethod): ContactMethod {
     return new ContactMethod(
       other.methodDefinition,
       other.methodValue,
       other.visible
+    );
+  }
+
+  equals(other: ContactMethod): boolean {
+    return (
+      this.methodDefinition === other.methodDefinition &&
+      this.methodValue === other.methodValue &&
+      this.visible === other.visible
     );
   }
 }
@@ -45,7 +46,18 @@ export class Account {
     public concactMethods: ContactMethod[] = []
   ) {}
 
-  equals(other: Account) {
+  static copy(other: Account): Account {
+    return new Account(
+      other.username,
+      other.accountType,
+      other.firstName,
+      other.lastName,
+      other.avatarSrc,
+      other.concactMethods.map((cm) => ContactMethod.copy(cm))
+    );
+  }
+
+  equals(other: Account): boolean {
     return (
       this.username === other.username &&
       this.accountType === other.accountType &&
@@ -55,17 +67,6 @@ export class Account {
       this.concactMethods.every((cm) =>
         other.concactMethods.find((ocm) => ocm.equals(cm))
       )
-    );
-  }
-
-  static copy(other: Account) {
-    return new Account(
-      other.username,
-      other.accountType,
-      other.firstName,
-      other.lastName,
-      other.avatarSrc,
-      other.concactMethods.map((cm) => ContactMethod.copy(cm))
     );
   }
 }

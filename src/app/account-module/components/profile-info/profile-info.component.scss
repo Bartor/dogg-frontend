@@ -1,7 +1,14 @@
 @import "/src/styles.scss";
+@import "/src/app/core/layout/breakpoints.scss";
 
 :host {
   display: flex;
+  width: 100%;
+  justify-content: center;
+
+  @include small {
+    flex-wrap: wrap;
+  }
 
   nav {
     display: flex;
@@ -14,8 +21,13 @@
     }
 
     app-switch-button {
-      --width: 3rem;
+      --width: 4rem;
       --height: 1.2rem;
     }
+  }
+
+  app-profile-form,
+  app-avatar {
+    flex-grow: 1;
   }
 }

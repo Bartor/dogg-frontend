@@ -1,0 +1,10 @@
+:host {
+  --label-font-size: 1rem;
+
+  label {
+    font-size: var(--label-font-size);
+    input {
+      margin: 0;
+    }
+  }
+}

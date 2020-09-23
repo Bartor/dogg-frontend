@@ -1,4 +1,5 @@
-@import "/src//styles.scss";
+@import "/src/styles.scss";
+@import "/src/app/core/layout/breakpoints.scss";
 
 :host {
   margin-left: var(--default-padding);
@@ -8,18 +9,27 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--default-padding);
 
+    @include small {
+      grid-template-columns: 1fr;
+    }
     ::slotted {
       grid-row: 1 / 2;
     }
 
     ul {
       grid-column: 1 / 3;
+
+      @include small {
+        grid-column: 1 / 2;
+      }
+
       margin: 0;
-      padding: 0;
+      padding: 1rem 0 0 0;
       position: relative;
 
       display: flex;
       flex-direction: column;
+      overflow: hidden;
 
       li {
         overflow: hidden;
@@ -48,8 +58,28 @@
       }
 
       nav {
+        width: fit-content;
+        transition: all var(--transition-time) ease;
+
         button {
-          @include button-style;
+          transition: all var(--transition-time) ease;
+          border-radius: var(--default-radius);
+          border: 0;
+          background-color: transparent;
+          height: 2rem;
+          cursor: pointer;
+
+          &:hover {
+            background-color: var(--theme-light-color);
+          }
+
+          &:focus {
+            outline: 0;
+          }
+        }
+
+        &.hidden {
+          transform: translateX(-100%);
         }
       }
     }
@@ -73,7 +103,6 @@
         padding-top: var(--default-padding);
         margin-bottom: 2px;
 
-        font-family: "Josefin Sans", sans-serif;
         font-size: 1.5rem;
         font-weight: bold;
 
@@ -101,6 +130,8 @@
     .two-container {
       position: relative;
       overflow: hidden;
+      height: 58px;
+
       nav,
       aside {
         transition: all var(--transition-time) ease;
@@ -114,6 +145,11 @@
         &.hidden {
           pointer-events: none;
           bottom: 100%;
+        }
+
+        app-radio {
+          color: var(--theme-yellow-color);
+          --label-font-size: 1.5rem;
         }
       }
 

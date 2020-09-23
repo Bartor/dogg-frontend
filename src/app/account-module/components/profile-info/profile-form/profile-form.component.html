@@ -62,23 +62,17 @@
         <fa-icon [icon]="trash"></fa-icon>
       </button>
     </li>
-    <!-- <nav>
-      <app-radio
-        [name]="'contact-methods'"
-        [enableEditing]="enableEditing"
-        [options]="availableContactMethods"
-        [(select)]="selectedContactMethod"
-      >
-      </app-radio>
+    <nav [class.hidden]="!enableEditing">
       <button
-        class="inverted"
         [disabled]="!enableEditing"
-        (click)="addNewContact($event)"
+        *ngFor="let contactMethod of availableContactMethods"
+        (click)="addNewContact(contactMethod)"
       >
-        add new
+        <fa-icon [icon]="plus"> </fa-icon>
+        {{ contactMethod.methodIdentifier | translate }}
       </button>
-    </nav> -->
+    </nav>
   </ul>
-  <!-- add your custom submit button here -->
+  <!-- submit button here -->
   <ng-content></ng-content>
 </form>
