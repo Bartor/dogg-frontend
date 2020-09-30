@@ -30,5 +30,8 @@
     "VISIBLE": "Visible?",
     "CONTACT_METHODS": "Available contact methods",
     "CHANGE_ROLE": "Change your role"
+  },
+  "ATTENDEES": {
+    "LOADING": "Loading..."
   }
 }

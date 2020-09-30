@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import { FileUploader, FileUploadState } from 'src/app/core/types/file-upload';
 
@@ -18,15 +12,15 @@ export class AvatarComponent implements OnInit {
   fus = FileUploadState;
 
   @Input() profilePhoto: string;
-  @Input() enableEditing: boolean;
-  @Input() uploader: FileUploader;
+  @Input() enableEditing: boolean = false;
+  @Input() uploader?: FileUploader;
 
   @ViewChild('fileInput', { static: false }) fileInputRef: ElementRef;
 
   constructor() {}
 
   onButtonClick() {
-    if (this.uploader.state !== FileUploadState.IN_PROGRESS) {
+    if (this.uploader?.state !== FileUploadState.IN_PROGRESS) {
       this.fileInputRef.nativeElement.click();
     }
   }
@@ -35,7 +29,7 @@ export class AvatarComponent implements OnInit {
 
   onFileChosen(files: FileList) {
     if (
-      this.uploader.state !== FileUploadState.IN_PROGRESS &&
+      this.uploader?.state !== FileUploadState.IN_PROGRESS &&
       this.enableEditing &&
       files.length > 0
     ) {

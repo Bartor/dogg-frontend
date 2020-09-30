@@ -1,17 +1,15 @@
+import { TOP_NAVIGATION } from './../../../config/navigation';
 import { Component, OnInit } from '@angular/core';
-import { APP_ROUTES } from 'src/app/config/routes';
 
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.scss']
+  styleUrls: ['./navigation-bar.component.scss'],
 })
 export class NavigationBarComponent implements OnInit {
-  routes = APP_ROUTES;
+  routes = TOP_NAVIGATION;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

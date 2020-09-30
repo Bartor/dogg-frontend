@@ -1,16 +1,19 @@
+import { AttendeeComponent } from './../attendees-module/components/attendee/attendee.component';
 import { Route } from '@angular/router';
 import { AccountComponent } from '../account-module/account.component';
 import { AttendeesComponent } from '../attendees-module/attendees.component';
 
-export const APP_ROUTES: (Route & { translationKey: string })[] = [
+export const APP_ROUTES: Route[] = [
   {
     path: 'account',
-    translationKey: 'NAV.ACCOUNT',
     component: AccountComponent,
   },
   {
     path: 'attendees',
-    translationKey: 'NAV.ATTENDEES',
     component: AttendeesComponent,
+  },
+  {
+    path: 'attendee/:username',
+    component: AttendeeComponent,
   },
 ];

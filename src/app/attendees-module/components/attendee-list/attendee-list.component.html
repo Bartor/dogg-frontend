@@ -1,0 +1,6 @@
+<article *ngFor="let attendee of attendees">
+  <a [routerLink]="['/attendee', attendee.username]">
+    <img [src]="attendee.avatarSrc" />
+    <p>{{ attendee.username }}</p>
+  </a>
+</article>

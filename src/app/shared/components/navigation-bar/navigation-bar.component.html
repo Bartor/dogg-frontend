@@ -4,7 +4,7 @@
   </header>
   <ul>
     <li *ngFor="let route of routes">
-      <a [routerLink]="route.path" routerLinkActive="active">{{
+      <a [routerLink]="route.route" routerLinkActive="active">{{
         route.translationKey | translate
       }}</a>
     </li>

@@ -6,15 +6,15 @@
     (onfileDropped)="onFileChosen($event)"
     (onWrongFile)="onFileError($event)"
     (click)="onButtonClick()"
-    [class.uploading]="uploader.state === fus.IN_PROGRESS"
+    [class.uploading]="uploader?.state === fus.IN_PROGRESS"
     [disabled]="!enableEditing"
   >
     <fa-icon [icon]="fileUploadIcon"></fa-icon>
     <h1>{{ "ACCOUNT.UPLOAD_AVATAR" | translate }}</h1>
   </button>
-  <aside [class.uploading]="uploader.state === fus.IN_PROGRESS">
+  <aside [class.uploading]="uploader?.state === fus.IN_PROGRESS">
     <h1>{{ "ACCOUNT.UPLOADING" | translate }}</h1>
-    <progress max="100" [value]="uploader.progress"></progress>
+    <progress max="100" [value]="uploader?.progress"></progress>
   </aside>
   <img [src]="profilePhoto" />
 </div>

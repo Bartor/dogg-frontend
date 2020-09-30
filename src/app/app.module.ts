@@ -1,3 +1,4 @@
+import { AttendeesModule } from './attendees-module/attendees.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -32,6 +33,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FontAwesomeModule,
     AccountModule,
     SharedModule,
+    AttendeesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

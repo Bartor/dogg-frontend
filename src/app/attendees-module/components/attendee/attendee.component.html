@@ -1,0 +1,6 @@
+<ng-container *ngIf="currentUser; else elseTemplate">
+  <p>This is {{ currentUser.username }}</p>
+</ng-container>
+<ng-template #elseTemplate>
+  <p>{{ "ATTENDEES.LOADING" | translate }}</p>
+</ng-template>
