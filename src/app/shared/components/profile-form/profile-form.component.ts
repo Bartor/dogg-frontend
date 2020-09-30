@@ -1,10 +1,8 @@
-import { ContactMethodDefinition } from './../../../../core/types/account.class';
 import {
   Component,
   EventEmitter,
   Input,
   OnChanges,
-  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -14,8 +12,12 @@ import {
   ADMIN_ACCOUNT_TYPE,
 } from 'src/app/config/account-types';
 import { CONTACT_METHODS } from 'src/app/config/contact-methods';
-import { RadioOption } from 'src/app/core/components/radio/radio.component';
-import { Account, ContactMethod } from 'src/app/core/types/account.class';
+import {
+  Account,
+  ContactMethod,
+  ContactMethodDefinition,
+} from 'src/app/core/types/account.class';
+import { RadioOption } from '../radio/radio.component';
 
 @Component({
   selector: 'app-profile-form',

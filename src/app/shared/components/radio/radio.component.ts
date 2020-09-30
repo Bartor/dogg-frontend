@@ -11,8 +11,6 @@ export interface RadioOption {
   styleUrls: ['./radio.component.scss'],
 })
 export class RadioComponent implements OnInit {
-  trackByFn = (opt: RadioOption) => opt.label;
-
   @Input() enableEditing: boolean;
   @Input() name: string;
 
@@ -21,12 +19,13 @@ export class RadioComponent implements OnInit {
   @Input() select: any;
   @Output() selectChange = new EventEmitter<any>();
 
+  trackByFn = (opt: RadioOption) => opt.label;
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  onChange() {
-    console.log(this.select);
+  onChange(): void {
     this.selectChange.emit(this.select);
   }
 }

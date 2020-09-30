@@ -3,7 +3,6 @@ import {
   ElementRef,
   Input,
   OnInit,
-  Output,
   ViewChild,
 } from '@angular/core';
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';

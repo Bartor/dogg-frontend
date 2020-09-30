@@ -8,8 +8,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SharedModule } from './core/modules/shared.module';
-import { NavigationBarComponent } from './core/components/navigation-bar/navigation-bar.component';
+import { NavigationBarComponent } from './shared/components/navigation-bar/navigation-bar.component';
+import { SharedModule } from './shared/shared.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
